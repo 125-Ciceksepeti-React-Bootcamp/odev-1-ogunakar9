@@ -1,0 +1,346 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+//colors
+
+$blue-tone: #444aff;
+$yellow-tone: #ffc05f;
+$bg-tone: #f8f0df;
+$card-tone: #f0f0cb;
+$pink-tone: #f7dad9;
+$insideCard-tone: #e9e2d3;
+
+* {
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  background-color: $bg-tone;
+}
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+
+@mixin default-padding {
+  padding-left: 4%;
+  padding-right: 4%;
+}
+
+/*---------------------------TOP SECTION----------------------*/
+
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid $yellow-tone;
+  @include default-padding;
+}
+
+.logo {
+  @include flex-center;
+  justify-content: flex-start;
+
+  img {
+    height: 100px;
+  }
+}
+
+.search-bar {
+  @include flex-center;
+  flex: 4;
+
+  .sb-width-fixer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 50%;
+    height: 50%;
+
+    input {
+      width: 100%;
+      height: 50%;
+      padding-left: 3rem;
+      border: 2px solid $blue-tone;
+      border-radius: 5px;
+      outline: none;
+      background-color: whitesmoke;
+      &:hover,
+      &:focus {
+        background-color: rgb(255, 255, 255);
+      }
+    }
+
+    a {
+      color: $blue-tone;
+      display: flex;
+      align-items: center;
+      position: absolute;
+      left: 1.5%;
+      text-decoration: none;
+    }
+  }
+}
+
+.profile-icon {
+  @include flex-center;
+  justify-content: flex-end;
+  i {
+    font-size: 2em;
+    color: $blue-tone;
+  }
+}
+
+/*-------------------------------MODAL-----------------------------*/
+
+.modal-container {
+  display: none;
+  background-color: $blue-tone;
+  z-index: 10;
+  position: fixed;
+  width: 30%;
+  left: 35%;
+  height: auto;
+  overflow: auto;
+  border-radius: 1rem;
+  padding: 1rem;
+
+  a {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    text-decoration: none;
+    color: $yellow-tone;
+    font-size: 2rem;
+  }
+
+  .modal-content {
+    p {
+      color: $yellow-tone;
+      padding: 1rem;
+      margin: 1rem;
+    }
+  }
+}
+
+/*---------------------------BOTTOM SECTION -----------------------*/
+
+.bottom-container {
+  @include default-padding;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3%;
+  margin-bottom: 3%;
+}
+
+/*-------TOGGLER------*/
+
+.toggle-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin-right: 1rem;
+
+  button {
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    margin-top: 3rem;
+    background-color: $yellow-tone;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: 2px solid $blue-tone;
+    box-shadow: 4px 5px 5px rgba(0, 0, 0, 0.5);
+    transition: 350ms all;
+    font-size: 1rem;
+    font-weight: bold;
+    color: $blue-tone;
+
+    &:hover {
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+      transform: translateY(-3px);
+      cursor: pointer;
+    }
+  }
+}
+
+/*--------FORM--------*/
+
+.form-container {
+  @include flex-center;
+  flex-flow: column wrap;
+  flex: 4;
+  display: none;
+  background-color: $yellow-tone;
+  border-radius: 1rem;
+  box-shadow: 4px 5px 5px rgba(0, 0, 0, 0.5);
+  padding: 2rem;
+
+  .fc-width-fixer {
+    width: 80%;
+
+    h2 {
+      text-align: center;
+      color: $blue-tone;
+      border-radius: 0.3rem;
+      border: 2px solid $blue-tone;
+      background-color: $bg-tone;
+      padding: 1rem;
+    }
+    form {
+      display: flex;
+      flex-flow: column wrap;
+
+      textarea {
+        width: 100%;
+        height: 15rem;
+        box-sizing: border-box;
+      }
+
+      label {
+        margin-top: 1rem;
+        color: $blue-tone;
+        font-weight: bold;
+        font-size: 1.2rem;
+        margin-bottom: 0.3rem;
+      }
+
+      input,
+      textarea,
+      button {
+        background-color: $bg-tone;
+        border: 2px solid $blue-tone;
+        border-radius: 0.3rem;
+        height: 2rem;
+        outline: none;
+
+        &:focus,
+        &:hover {
+          background-color: rgb(255, 255, 255);
+        }
+      }
+
+      textarea {
+        height: 10rem;
+      }
+
+      button {
+        box-shadow: 4px 5px 5px rgba(0, 0, 0, 0.5);
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        height: 3rem;
+        text-transform: uppercase;
+        font-size: 1.5em;
+        font-weight: bold;
+        color: $blue-tone;
+        transition: 200ms all;
+
+        &:hover {
+          box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+          transform: translateY(-3px);
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+/*--------CARDS--------*/
+
+.card-container {
+  display: flex;
+  flex: 4;
+}
+
+.card-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  background-color: $yellow-tone;
+  padding: 2rem;
+  grid-gap: 1rem;
+  border-radius: 1rem;
+  box-shadow: 4px 5px 5px rgba(0, 0, 0, 0.5);
+}
+
+.card {
+  background-color: $insideCard-tone;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 4px 7px 7px rgba(0, 0, 0, 0.5);
+  border: 2px solid $blue-tone;
+  transition: 200ms all;
+
+  &:hover {
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+    transform: translateY(-3px);
+  }
+
+  .image {
+    @include flex-center;
+    width: 100%;
+
+    img {
+      width: 100%;
+      border-radius: 1em;
+    }
+  }
+
+  .title-container {
+    background-color: $insideCard-tone;
+    text-align: center;
+    p {
+      margin-top: 0;
+      background-color: $insideCard-tone;
+      text-transform: capitalize;
+      font-size: 1.4rem;
+    }
+  }
+
+  .desc-container {
+    p {
+      text-align: justify;
+      background-color: $insideCard-tone;
+    }
+  }
+}
+
+//for screens below 1100px - minor width fixes for small screens
+
+@media screen and(max-width:1100px) {
+  .toggle-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: 20px;
+    justify-content: space-between;
+
+    button {
+      width: 47%;
+    }
+  }
+
+  .bottom-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form-container {
+    width: auto;
+    margin: 0;
+  }
+
+  .search-bar {
+    .sb-width-fixer {
+      width: 95%;
+    }
+  }
+
+  .modal-container {
+    width: 80%;
+    left: 10%;
+    padding: 0;
+  }
+}
